@@ -59,3 +59,5 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+<!-- Last deployed: Fri Mar 27 04:51:34 UTC 2026 -->
