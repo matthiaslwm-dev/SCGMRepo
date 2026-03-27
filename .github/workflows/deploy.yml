@@ -1,0 +1,25 @@
+name: Deploy to Droplet
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 152.42.171.223
+          port: 2222
+          username: scgm-repo-admin
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd /var/www/scgmrepo
+            git pull origin main
+            npm install --production
+            npm run build
+            pm2 restart scgm-strapi
+            echo "Deployed successfully!"
